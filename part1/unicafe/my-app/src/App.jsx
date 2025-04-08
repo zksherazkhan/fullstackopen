@@ -1,6 +1,14 @@
 import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
+
+const Button = (props) => {
+  return (
+    <>
+      <button onClick={props.onClick}>{props.text}</button>
+    </>
+  );
+};
 function App() {
   const [good, setGood] = useState(0);
   const [neutral, setNeutral] = useState(0);
@@ -14,9 +22,11 @@ function App() {
   return (
     <>
       <h1>Give Feedback</h1>
-      <button onClick={() => setGood(good + 1)}>good</button>
-      <button onClick={() => setNeutral(neutral + 1)}>neutral</button>
-      <button onClick={() => setBad(bad + 1)}>bad</button>
+      <Button onClick={() => setGood(good + 1)} text="Good" />
+      <Button onClick={() => setNeutral(neutral + 1)} text="Neutral" />
+      <Button onClick={() => setBad(bad + 1)} text="Bad" />
+      {/* <button onClick={() => setNeutral(neutral + 1)}>neutral</button>
+      <button onClick={() => setBad(bad + 1)}>bad</button> */}
       <br />
       <h1>Statistics</h1>
       {/* <p>good: {good} </p>
